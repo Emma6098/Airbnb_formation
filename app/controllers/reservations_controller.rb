@@ -1,13 +1,11 @@
 class ReservationsController < ApplicationController
-  before_action :set_user, only: %i[new create]
-
-  def new
-    @reservation = Reservation.new
-  end
+  before_action :set_formation, only: %i[create]
 
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = Reservation.new
     @reservation.formation = @formation
+    @reservation.user = current_user
+    @reservation.statut = "en attente de validation"
     @reservation.save!
     redirect_to reservation_path(@reservation)
   end
@@ -27,10 +25,6 @@ class ReservationsController < ApplicationController
   end
 
   private
-
-  def reservation_params
-    params.require(:reservation).permit(:statut, :user_id)
-  end
 
   def set_formation
     @formation = Formation.find(params[:formation_id])

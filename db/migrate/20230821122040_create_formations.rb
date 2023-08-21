@@ -5,7 +5,7 @@ class CreateFormations < ActiveRecord::Migration[7.0]
       t.text :description
       t.datetime :date
       t.string :theme
-      t.references :user, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -5,6 +5,7 @@ class FormationsController < ApplicationController
 
   def show
     @formation = Formation.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
@@ -13,7 +14,8 @@ class FormationsController < ApplicationController
 
   def create
     @formation = Formation.new(formation_params)
-    @formation.save
+    @formation.user = current_user
+    @formation.save!
     redirect_to formation_path(@formation)
   end
 
@@ -30,7 +32,7 @@ class FormationsController < ApplicationController
   def destroy
     @formation = Formation.find(params[:id])
     @formation.destroy
-    redirect_to formations_path, status: :see_other
+    redirect_to formations_path(@formation), status: :see_other
   end
 
   private
