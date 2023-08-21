@@ -1,0 +1,8 @@
+<h1>Mofifie la formation</h1>
+<%= simple_form_for [@formation] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :theme %>
+  <%= f.input :date %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>

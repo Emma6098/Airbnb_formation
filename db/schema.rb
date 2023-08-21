@@ -10,9 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_092817) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_21_101818) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "formations", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "date"
+    t.string "theme"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_formations_on_user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.string "statut"
+    t.bigint "user_id"
+    t.bigint "formation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["formation_id"], name: "index_reservations_on_formation_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_092817) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "formations", "users"
+  add_foreign_key "reservations", "formations"
+  add_foreign_key "reservations", "users"
 end

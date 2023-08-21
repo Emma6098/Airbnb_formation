@@ -1,0 +1,12 @@
+<%=link_to "Add a formation", new_formation_path%>
+
+<h2>Liste des formations : </h2>
+<%@formations.each do |formation|%>
+<div class="card" style="width: 18rem; height: 56px;">
+  <div class="card-body" >
+      <h3><%= link_to formation.title, formation_path(formation) %></h3>
+      <p><%= formation.date %><p>
+      <p><%= formation.theme %><p>
+  </div>
+</div>
+<% end %>
