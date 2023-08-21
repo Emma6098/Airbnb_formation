@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :formations do
-    resources :reservations, only: [:create, :accept, :reject]
+    resources :reservations, only: [:create]
   end
-  resources :reservations, only: [:destroy]
+  resources :reservations do
+    delete "destroy", to: "pages#destroy"
+    patch "accept", to: "pages#accept"
+    patch "reject", to: "pages#reject"
+  end
   get "profile", to: "pages#profile"
   # Defines the root path route ("/")
   # root "articles#index"

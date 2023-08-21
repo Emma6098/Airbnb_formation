@@ -10,20 +10,6 @@ class ReservationsController < ApplicationController
     redirect_to reservation_path(@reservation)
   end
 
-  def destroy
-    @reservation = Reservation.find(params[:id])
-    @reservation.destroy
-    redirect_to reservations_path(@reservation.formation), status: :see_other
-  end
-
-  def accept
-
-  end
-
-  def reject
-
-  end
-
   private
 
   def set_formation

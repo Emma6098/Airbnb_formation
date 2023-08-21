@@ -3,6 +3,7 @@
 <br>
 <%=@formation.description%>
 <br>
+<%=@formation.date%>
 <%=link_to "Modifier la formation", edit_formation_path(@formation)%>
 <%=link_to "Supprimer la formation", formation_path(@formation), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette formation?" }%>
 <%=link_to "Réserver la formation", formation_reservations_path(@formation), data: {turbo_method: :post, turbo_confirm: "Etes vous sûr de vouloir réserver cette formation?" }%>
