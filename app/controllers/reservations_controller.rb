@@ -10,6 +10,13 @@ class ReservationsController < ApplicationController
     redirect_to reservation_path(@reservation)
   end
 
+
+  def destroy
+    @reservation_delete = Reservation.find(params[:id])
+    @reservation_delete.destroy
+    redirect_to profile_path, status: :see_other
+  end
+
   private
 
   def set_formation
