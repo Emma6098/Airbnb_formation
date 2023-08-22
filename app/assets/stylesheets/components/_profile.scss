@@ -1,0 +1,25 @@
+.card-profil {
+  margin-right: 50px;
+  background-color: white;
+  border-radius: 7px;
+  border-color: rgb(109, 107, 107) ;
+  height: 180px;
+  width: 400px;
+  display: flex;
+  color: rgb(109, 107, 107);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    border-color: black;
+  }
+}
+
+.theme {
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #719897;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
