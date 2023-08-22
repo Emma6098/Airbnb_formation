@@ -1,8 +1,16 @@
 <h1>Mofifie la formation</h1>
-<%= simple_form_for [@formation] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :theme %>
-  <%= f.input :date %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
+  <div class="containernewformation">
+    <div class="row">
+
+        <%= simple_form_for [@formation], html: { class: 'formation-form' } do |f| %>
+          <%= f.input :title, label: 'Title' %>
+          <%= f.input :theme, label: 'Theme' %>
+          <%= f.input :date, label: 'Date' %>
+          <%= f.input :price, label: 'Price' %>
+          <%= f.input :photo_formation, as: :file, label: 'Photo' %>
+          <%= f.input :description, label: 'Description', input_html: { rows: 5 } %>
+          <%= f.button :submit, 'Add Formation', class: 'btn-submit' %>
+        <% end %>
+
+    </div>
+  </div>
