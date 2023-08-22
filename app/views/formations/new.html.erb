@@ -4,7 +4,7 @@
   <div class="containernewformation">
     <div class="row">
 
-        <%= simple_form_for @formation, html: { class: 'formation-form' } do |f| %>
+        <%= simple_form_for [@formation], html: { class: 'formation-form' } do |f| %>
           <%= f.input :title, label: 'Title' %>
           <%= f.input :theme, label: 'Theme' %>
           <%= f.input :date, label: 'Date' %>
