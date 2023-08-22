@@ -1,49 +1,51 @@
 <div class="container py-5">
+
   <div class="d-flex align-items-center justify-content-between mb-5">
     <h1>Mon profil</h1>
   </div>
-  <div>
+  <div class="row">
     <h2>Les formations que je donne :</h2>
-    <div class="row">
       <% current_user.formations.each do |formation|%>
         <div class="card-profil col-3 col-sm-6 col-md-4 mt-3 mb-3 p-3 border">
-          <div>
-            <%= link_to formation_path(formation), class: "card-body text-decoration-none" do %>
-                <h3 class="text-dark"><%=formation.title%></h3>
-                <p><%= formation.date %><p>
-                <p class="theme"><%= formation.theme %><p>
-                <% formation.reservations.each do |reservation|%>
-                  <p><%= reservation.statut %><p>
-                    <%if reservation.statut == "en attente de validation" %>
-                      <p><%=link_to "Accepter la réservation", reservation_accept_path(reservation), data: {turbo_method: :patch, turbo_confirm: "Etes vous sûr de vouloir accepter cette réservation?" }%></p>
-                      <p><%=link_to "Rejeter la réservation", reservation_reject_path(reservation), data: {turbo_method: :patch, turbo_confirm: "Etes vous sûr de vouloir rejeter cette réservation?" }%></p>
-                    <% elsif reservation.statut == "validé"%>
-                      <p><%=link_to "Rejeter la réservation", reservation_reject_path(reservation), data: {turbo_method: :patch, turbo_confirm: "Etes vous sûr de vouloir rejeter cette réservation?" }%></p>
-                    <% else %>
-                      <p><%=link_to "Accepter la réservation", reservation_accept_path(reservation), data: {turbo_method: :patch, turbo_confirm: "Etes vous sûr de vouloir accepter cette réservation?" }%></p>
-                    <% end %>
-                <%end%>
-            <% end %>
-          </div>
+          <%= link_to formation_path(formation), class: "text-decoration-none" do %>
+            <div class="card-content">
+              <h3 class="text-dark"><%=formation.title%></h3>
+              <p class="text-muted"><%= formation.date %></p>
+
+              <% formation.reservations.each do |reservation|%>
+                <p class="text-muted"><i><%= reservation.statut %></i></p>
+                <span class="theme-profile"><%= formation.theme %></span>
+                  <%if reservation.statut == "en attente de validation" %>
+                    <p class="mt-1"><%=link_to "Accepter la réservation", reservation_accept_path(reservation), data: {turbo_method: :patch, turbo_confirm: "Etes vous sûr de vouloir accepter cette réservation?" }, class:"btn btn-accept text-decoration-none"%></p>
+                    <p class="mt-1"><%=link_to "Rejeter la réservation", reservation_reject_path(reservation), data: {turbo_method: :patch, turbo_confirm: "Etes vous sûr de vouloir rejeter cette réservation?" }, class:"btn btn-reject text-decoration-none"%></p>
+                  <% elsif reservation.statut == "validé"%>
+                    <p class="mt-1"><%=link_to "Rejeter la réservation", reservation_reject_path(reservation), data: {turbo_method: :patch, turbo_confirm: "Etes vous sûr de vouloir rejeter cette réservation?" }, class:"btn btn-reject text-decoration-none"%></p>
+                  <% else %>
+                    <p class="mt-1"><%=link_to "Accepter la réservation", reservation_accept_path(reservation), data: {turbo_method: :patch, turbo_confirm: "Etes vous sûr de vouloir accepter cette réservation?" }, class:"btn btn-accept text-decoration-none"%></p>
+                  <% end %>
+              <%end%>
+
+            </div>
+          <% end %>
         </div>
       <%end%>
-    </div>
   </div>
   <div>
     <h2>Les formations auxquelles je suis inscrit :</h2>
     <div class="row">
       <%current_user.reservations.each do |reservation|%>
         <div class="card-profil col-3 col-sm-6 col-md-4 mt-3 mb-3 p-3 border">
-          <div>
-            <%= link_to formation_path(reservation.formation), class: "card-body text-decoration-none" do %>
-              <h3 class="text-dark"><%=reservation.formation.title%></h3>
-              <p><%= reservation.formation.user.first_name %></p>
-              <p><%= reservation.formation.date %><p>
-              <p><%= reservation.formation.theme %><p>
-              <p><%= reservation.statut %><p>
-              <%=link_to "Supprimer cette réservation", reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette réservation?" }%>
-            <%end%>
-          </div>
+          <%= link_to formation_path(reservation.formation), class:"text-decoration-none" do %>
+            <div class="card-content">
+                <h3 class="text-dark"><%=reservation.formation.title%></h3>
+                <p class="text-muted"><%= reservation.formation.user.first_name %></p>
+                <p class="text-muted"><%= reservation.formation.date %></p>
+                <p class="text-muted"><i><%= reservation.statut %></i></p>
+                <span class="theme-profile"><%= reservation.formation.theme %></span>
+                <br>
+                <%=link_to "Supprimer cette réservation", reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette réservation?" }, class: "btn btn-delete"%>
+            </div>
+          <%end%>
         </div>
       <% end %>
     </div>
