@@ -1,0 +1,57 @@
+.card-profil {
+  margin-right: 50px;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 0 2px rgba(109, 107, 107, 0.2);
+  height: auto;
+  width: 400px;
+  display: flex;
+  color: rgb(109, 107, 107) !important;
+
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+}
+
+.btn-delete {
+  margin-top: 5px;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #cf5656;
+    &:hover {
+      background: #6b2121;
+      color: white;
+    }
+}
+
+.theme-profile {
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #719897;
+}
+
+.btn-accept {
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #36ba43;
+    &:hover {
+      background: #387d21;
+      color: white;
+    }
+}
+
+.btn-reject {
+  margin-top: 5px;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #cf5656;
+    &:hover {
+      background: #6b2121;
+      color: white;
+    }
+}
