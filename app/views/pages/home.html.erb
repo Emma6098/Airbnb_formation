@@ -1,7 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>TROUVEZ VOTRE FORMATION AVEC FORMASMART</h1>
+<p>
+Bienvenue sur notre plateforme de formations collaboratives !
+Découvrez un espace dynamique où l'apprentissage prend une nouvelle dimension. Que vous souhaitiez partager vos compétences ou enrichir vos connaissances, notre site vous offre la possibilité de créer et de participer à des formations uniques. Connectez-vous avec une communauté passionnée et engagée, prête à explorer une variété de sujets captivants. Notre interface conviviale facilite la création de cours interactifs, tout en permettant aux apprenants de bénéficier d'une expérience immersive. Rejoignez-nous dès aujourd'hui pour repousser les limites de l'éducation traditionnelle et pour créer, apprendre et grandir ensemble.</p>
 <%if user_signed_in?%>
-<h2> Hello  <%= current_user.first_name%> ! </h2>
+<h2> Heureux de te revoir sur notre site <%= current_user.first_name%> ! </h2>
 <%else%>
 <h2>Hello connectez-vous !</h2>
 <%end%>
