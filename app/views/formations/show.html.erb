@@ -1,9 +1,31 @@
 <%# <%=@formation.user.first_name%>
-<%=@formation.title%>
-<br>
-<%=@formation.description%>
-<br>
-<%=@formation.date%>
-<%=link_to "Modifier la formation", edit_formation_path(@formation)%>
-<%=link_to "Supprimer la formation", formation_path(@formation), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette formation?" }%>
-<%=link_to "Réserver la formation", formation_reservations_path(@formation), data: {turbo_method: :post, turbo_confirm: "Etes vous sûr de vouloir réserver cette formation?" }%>
+<div class="flex-container-show">
+    <div class="card-show">
+        <h1><%=@formation.title%></h1>
+        <h4><%=@formation.theme%></h4>
+    </div>
+    <div class="flex-cards">
+    <div class="card-show">
+        <h4><%=@formation.user.first_name%></h4>
+        <h4><%=@formation.user.last_name%></h4>
+        <%=@formation.description%>
+    </div>
+    <div class="card-show">
+        <% if @formation.photo_formation.attached? %>
+          <%= cl_image_tag @formation.photo_formation.key %>
+        <% else %>
+          <img src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692710670/RHEXIS_R%C3%A9forme_Action_de_Formation_mg9mop.jpg" alt="">
+        <% end %>
+    </div>
+    </div>
+</div>
+    <div class="card-reservation">
+        <%=@formation.date.strftime("%d/%m/%Y")%>
+        <h4><%=@formation.price%> €</h4>
+    <% if current_user == @formation.user %>
+          <div id="button-modifier"><%=link_to "Modifier la formation", edit_formation_path(@formation)%></div>
+          <div id="button-supprimer"><%=link_to "Supprimer la formation", formation_path(@formation), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette formation?" }%></div>
+    <% else %>
+        <div id="button-reserver"><%=link_to "Réserver la formation", formation_reservations_path(@formation), data: {turbo_method: :post, turbo_confirm: "Etes vous sûr de vouloir réserver cette formation?" }%></div>
+    <% end %>
+    </div>
