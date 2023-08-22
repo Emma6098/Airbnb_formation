@@ -1,12 +1,19 @@
-<%=link_to "Add a formation", new_formation_path%>
-
-<h2>Liste des formations : </h2>
-<%@formations.each do |formation|%>
-<div class="card" style="width: 18rem; height: 56px;">
-  <div class="card-body" >
-      <h3><%= link_to formation.title, formation_path(formation) %></h3>
-      <p><%= formation.date %><p>
-      <p><%= formation.theme %><p>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-5">
+    <h2 class="mb-0">Liste des formations disponibles : </h2>
+    <%=link_to "Add a formation", new_formation_path, class: "btn btn-flat"%>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <%@formations.each do |formation|%>
+      <div class="card col-3 col-sm-6 col-md-4 mt-3 mb-3 p-3 border">
+        <div>
+            <%= link_to formation_path(formation), class: "card-body text-decoration-none" do %>
+              <h3 class="text-dark"><%= formation.title %></h3>
+              <p><%= formation.date %><p>
+              <p class="theme"><%= formation.theme %><p>
+            <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
-<% end %>

@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   resources :formations do
     resources :reservations, only: [:create]
   end
-  resources :reservations do
-    delete "destroy", to: "pages#destroy"
+  resources :reservations, only: :destroy do
     patch "accept", to: "pages#accept"
     patch "reject", to: "pages#reject"
   end
