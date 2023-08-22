@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to formations_path, class: "navbar-brand" do %>
-      <%= cl_image_tag "logo_formasmart.png_cn90zv" %>
+      <%= cl_image_tag "logo_formasmart.png_cn90zv"%>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
               <%= cl_image_tag current_user.photo.key, class: "avatar" %>
             <% else %>
               <%= cl_image_tag "vf0knbzqj91f65omnthy", class: "avatar", alt: "dropdown menu" %>
-            <% end %>
+            <% end
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Mon profil", profile_path, class: "dropdown-item" %>
