@@ -1,6 +1,6 @@
-<h1>mon profil</h1>
+<h1>Mon profil</h1>
 
-<h2>Les formations que je donne</h2>
+<h2>Les formations que je donne:</h2>
 <% current_user.formations.each do |formation|%>
 <h3><%= link_to formation.title, formation_path(formation) %></h3>
       <p><%= formation.date %><p>
@@ -12,7 +12,7 @@
       <% end %>
 <% end %>
 
-<h2>Les formations auxquelles je suis inscrit</h2>
+<h2>Les formations auxquelles je suis inscrit:</h2>
 <%current_user.reservations.each do |reservation|%>
 <h3><%= link_to reservation.formation.title, formation_path(reservation.formation) %></h3>
       <p><%= reservation.formation.user.first_name %></p>
