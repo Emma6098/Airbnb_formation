@@ -21,7 +21,7 @@
               <%= cl_image_tag current_user.photo.key, class: "avatar" %>
             <% else %>
               <%= cl_image_tag "vf0knbzqj91f65omnthy", class: "avatar", alt: "dropdown menu" %>
-            <% end %>
+            <% end%>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Mon profil", profile_path, class: "dropdown-item" %>

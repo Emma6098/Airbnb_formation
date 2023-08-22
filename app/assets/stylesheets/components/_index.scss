@@ -4,17 +4,20 @@
 @import "form_legend_clear";
 @import "navbar";
 @import "card";
-
+@import "profile";
+@import "button";
+@import "form_formations";
 
 .btn-flat {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
   background: #01CB8E;
-    &:hover {
-      background: #01A272;
-      color: white;
-    }
+
+  &:hover {
+    background: #01A272;
+    color: white;
+  }
 }
 
 .card {
@@ -25,8 +28,9 @@
   width: 400px;
   display: flex;
   color: rgb(109, 107, 107);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
+
   &:hover {
     transform: scale(1.1);
   }
