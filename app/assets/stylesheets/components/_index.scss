@@ -3,3 +3,39 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #01CB8E;
+    &:hover {
+      background: #01A272;
+      color: white;
+    }
+}
+
+.card {
+  margin-right: 50px;
+  background-color: white;
+  border-radius: 7px;
+  height: 180px;
+  width: 400px;
+  display: flex;
+  color: rgb(109, 107, 107);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.theme {
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #719897;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
