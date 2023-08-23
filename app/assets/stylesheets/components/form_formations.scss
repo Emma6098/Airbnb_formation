@@ -1,24 +1,39 @@
-.containernewformation, .conatiner-user {
-  max-width: 1200px;
+.containernewformation,
+.conatiner-user {
   margin: 0 auto;
   padding: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 
-.formation-form, .registration-form {
+.containernewformations {
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-form,
+.form-inputs {
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 600px;
   margin: 0 auto;
-
 }
+
+.formation-form {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 0 auto;
+}
+
+
 
 .form-group {
   margin-bottom: 20px;
@@ -54,7 +69,8 @@
   background-color: #0056b3;
 }
 
-h1 {
+h1,
+h2 {
   font-size: 24px;
   color: #333;
   margin-bottom: 20px;
@@ -87,5 +103,11 @@ h1 {
 @media (max-width: 300px) {
   .formation-form {
     width: 50%;
+  }
+}
+
+.password_link {
+  a {
+    text-decoration: none;
   }
 }
