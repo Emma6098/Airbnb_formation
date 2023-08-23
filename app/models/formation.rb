@@ -7,4 +7,5 @@ class Formation < ApplicationRecord
   validates :date, presence: true
   validates :title, presence: true
   validates :theme, presence: true
+  validates :price, presence: true
 end
