@@ -4,13 +4,46 @@
   margin: 0 auto;
 }
 
-.card-show {
+.card-show-title {
   margin-top: 10px;
+  padding: 10px;
   background-color: white;
   border-radius: 7px;
   height: auto;
-  width: 700px;
+  width: auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(109, 107, 107);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-show {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 7px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(109, 107, 107);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease-in-out;
+}
+.card-reservation {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 7px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: rgb(109, 107, 107);
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   transition: transform 0.3s ease-in-out;
@@ -20,25 +53,25 @@
   display: flex;
 }
 
-#button-reserver, #button-modifier{
+.button-reserver, .button-modifier{
   background-color: #2f455c;
   border: none;
   padding: 12px 15px;
   text-align: center;
   display: inline-block;
   font-size: 14px;
-  border-radius: 8px;
-  a {
+  border-radius: 4px;
+
     color: white;
     text-decoration: none;
-  }
+
 }
 
-#button-reserver:hover, #button-modifier:hover{
+.button-reserver:hover, #button-modifier:hover{
   background-color: #435669;
 }
 
-#button-supprimer{
+.button-supprimer{
   background-color: #3a0609;
   border: none;
   padding: 12px 15px;
@@ -52,6 +85,6 @@
   }
 }
 
-#button-supprimer:hover{
+.button-supprimer:hover{
   background-color: #52272f;
 }
