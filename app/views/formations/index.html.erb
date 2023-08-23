@@ -22,6 +22,11 @@
             <h3 class="text-dark"><%= formation.title %></h3>
             <p><%= formation.date %></p>
             <p class="theme"><%= formation.theme %></p>
+            <% if formation.user.photo.attached? %>
+              <%= cl_image_tag formation.user.photo.key, class: "avatar avatar-absolut" %>
+            <% else %>
+              <img class="avatar avatar-absolut" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692693068/vf0knbzqj91f65omnthy.png" alt="">
+            <% end%>
           </div>
         <% end %>
       </div>
