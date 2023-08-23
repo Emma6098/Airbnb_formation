@@ -24,7 +24,7 @@
   align-items: center;
 }
 
-.card-show, .card-home-one {
+.card-show {
   margin-top: 30px;
   padding: 20px;
   background-color: white;
@@ -38,6 +38,7 @@
   color: rgb(109, 107, 107);
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
+
 .card-reservation {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -95,8 +96,19 @@
 }
 
 .card-home-one{
-  padding-top: 10px;
+  padding: 20px;
   margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: white;
+  border-radius: 7px;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: rgb(109, 107, 107);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 .card-home{
