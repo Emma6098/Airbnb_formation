@@ -5,10 +5,11 @@
     <div class="row">
 
         <%= simple_form_for [@formation], html: { class: 'formation-form' } do |f| %>
-          <%= f.input :title, label: 'Title' %>
+          <%= f.input :title, label: 'Nom de la formation' %>
           <%= f.input :theme, label: 'Theme' %>
           <%= f.input :date, label: 'Date' %>
-          <%= f.input :price, label: 'Price' %>
+          <%= f.input :price, label: 'Prix' %>
+          <%= f.input :address, label: 'Lieu de la formation' %>
           <%= f.input :photo_formation, as: :file, label: 'Photo' %>
           <%= f.input :description, label: 'Description', input_html: { rows: 5 } %>
           <%= f.button :submit, 'Add Formation', class: 'btn-submit' %>

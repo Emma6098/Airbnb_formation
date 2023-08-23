@@ -9,7 +9,9 @@
         <%= link_to formation_path(formation), class: "card-body text-decoration-none" do %>
           <div>
             <h3 class="text-dark"><%= formation.title %></h3>
-            <p><%= formation.date %></p>
+            <%= formation.date.strftime("%d/%m/%Y") %>
+            <br>
+            <%= formation.price %>€
             <p class="theme"><%= formation.theme %></p>
           </div>
         <% end %>

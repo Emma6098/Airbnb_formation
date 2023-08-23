@@ -6,6 +6,10 @@ class FormationsController < ApplicationController
   def show
     @formation = Formation.find(params[:id])
     @reservation = Reservation.new
+    @marker = {
+      lat: @formation.latitude,
+      lng: @formation.longitude
+      }
   end
 
   def new
@@ -38,6 +42,6 @@ class FormationsController < ApplicationController
   private
 
   def formation_params
-    params.require(:formation).permit(:title, :date, :description, :theme, :price, :photo_formation)
+    params.require(:formation).permit(:title, :date, :description, :theme, :price, :photo_formation, :address, :longitude, :latitude)
   end
 end
