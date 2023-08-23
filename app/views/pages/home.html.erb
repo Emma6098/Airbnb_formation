@@ -1,21 +1,23 @@
 <div class="container">
   <div class="d-flex justify-content-between">
     <div class="row home-content">
-      <div class="col-12 col-lg-6 d-flex align-items-center">
+      <div class="col-12 col-lg-6 d-flex align-items-center add-margin-home">
         <div class="card-home">
           <h1 class = "main-title">TROUVEZ VOTRE FORMATION AVEC FORMASMART</h1>
           <p>
           Bienvenue sur notre plateforme de formations collaboratives !
           Découvrez un espace dynamique où l'apprentissage prend une nouvelle dimension.
           </p>
+        <%if user_signed_in? == false%>
+          <h3>Bienvenue, connectez-vous !</h3>
+            <div class="button-connect">
+          <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+          </div>
+        <%end%>
         </div>
       </div>
 
       <div class="col-12 col-lg-6 d-flex align-items-end justify-content-end">
-        <%if user_signed_in? == false%>
-          <h2>Bienvenue, connectez-vous !</h2>
-          <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
-        <%end%>
           <img class="image-illustration" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692710670/RHEXIS_R%C3%A9forme_Action_de_Formation_mg9mop.jpg" alt="" style="height: 217px;">
       </div>
     </div>
