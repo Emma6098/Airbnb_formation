@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<h1>S'inscrire</h1>
 
   <div class="container-user">
     <div class="row">
@@ -10,11 +10,11 @@
   <%= f.input :first_name,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "first name" }%>
+                input_html: { autocomplete: "Prénom" }%>
   <%= f.input :last_name,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "last name" }%>
+                input_html: { autocomplete: "Nom" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -22,15 +22,15 @@
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "mot de passe" } %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "confirmez le mot de passe" } %>
     <%= f.input :photo, as: :file %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "S'inscrire", class: "btn_submit" %>
   </div>
 <% end %>
 
