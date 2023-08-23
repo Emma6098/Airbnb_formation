@@ -13,29 +13,33 @@
   width: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   color: rgb(109, 107, 107);
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
 }
 
 .card-show {
-  margin-top: 10px;
-  padding: 10px;
+  margin-top: 30px;
+  padding: 20px;
   background-color: white;
   border-radius: 7px;
   height: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   color: rgb(109, 107, 107);
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease-in-out;
 }
 .card-reservation {
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 20px;
   padding: 15px;
   background-color: white;
@@ -49,6 +53,10 @@
   transition: transform 0.3s ease-in-out;
 }
 
+.card-img {
+  margin-top: 30px;
+
+}
 .flex-cards{
   display: flex;
 }
@@ -72,19 +80,16 @@
 }
 
 .button-supprimer{
-  background-color: #3a0609;
+  background: #cf5656;
+  color: white;
   border: none;
   padding: 12px 15px;
   text-align: center;
   display: inline-block;
   font-size: 14px;
-  border-radius: 8px;
-  a {
+  border-radius: 4px;
+  &:hover {
+    background: #6b2121;
     color: white;
-    text-decoration: none;
   }
-}
-
-.button-supprimer:hover{
-  background-color: #52272f;
 }
