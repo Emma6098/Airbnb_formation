@@ -1,6 +1,11 @@
 class FormationsController < ApplicationController
+
   def index
-    @formations = Formation.all
+      if params[:keyword]
+        @formations = Formation.search_by_theme(params[:keyword])
+      else
+        @formations = Formation.all
+      end
   end
 
   def show
