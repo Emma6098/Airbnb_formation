@@ -1,7 +1,18 @@
 <div class="container py-5">
+<div class="mb-4">
+  <%= form_tag formations_path, method: :get, class: "form-inline" do %>
+    <div class="input-group">
+      <%= text_field_tag :keyword, params[:keyword], class: "form-control", placeholder: "Rechercher par mot-clé" %>
+      <div class="input-group-append">
+        <%= submit_tag "Rechercher", class: "btn button-reserver" %>
+      </div>
+    </div>
+  <% end %>
+</div>
   <div class="d-flex align-items-center justify-content-between mb-5">
     <h2 class="mb-0">Liste des formations disponibles : </h2>
-    <%= link_to "Add a formation", new_formation_path, class: "btn btn-flat" %>
+
+    <%= link_to "Ajouter une formation", new_formation_path, class: "btn btn-flat" %>
   </div>
   <div class="row d-flex justify-content-center">
     <% @formations.each do |formation| %>
@@ -13,6 +24,11 @@
             <br>
             <%= formation.price %>€
             <p class="theme"><%= formation.theme %></p>
+            <% if formation.user.photo.attached? %>
+              <%= cl_image_tag formation.user.photo.key, class: "avatar avatar-absolut" %>
+            <% else %>
+              <img class="avatar avatar-absolut" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692693068/vf0knbzqj91f65omnthy.png" alt="">
+            <% end%>
           </div>
         <% end %>
       </div>
