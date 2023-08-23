@@ -1,5 +1,5 @@
 .containernewformation,
-.conatiner-user {
+.container-user {
   margin: 0 auto;
   padding: 0px;
   display: flex;
@@ -23,14 +23,19 @@
   margin: 0 auto;
 }
 
+.registration-form{
+  width: 80% !important;
+}
+
 .formation-form {
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  width: 80%;
+  width: 35%;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 
