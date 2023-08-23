@@ -10,17 +10,19 @@
     </div>
       <div class="row justify-content-space-between">
         <div class="col 6 col-md-6 col-sm-12 d-flex">
-          <div class="card-show align-self-stretch">
+          <div class="card-show ">
               <h4><%=@formation.user.first_name%> <%=@formation.user.last_name%></h4>
               <%=@formation.description%>
-              <% if @formation.user.photo.attached? %>
-              <%= cl_image_tag @formation.user.photo.key, class: "avatar avatar-absolut" %>
-            <% else %>
-              <img class="avatar" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692693068/vf0knbzqj91f65omnthy.png" alt="">
-            <% end%>
+              <div class="avatar avatar-absolut">
+                <% if @formation.user.photo.attached? %>
+                  <%= cl_image_tag @formation.user.photo.key %>
+                <% else %>
+                  <img class="avatar" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692693068/vf0knbzqj91f65omnthy.png" alt="">
+                <% end%>
+            </div>
           </div>
         </div>
-          <div class="col-6 col-md-6 col-sm-12 d-flex">
+          <div class="col-6 col-md-6 col-sm-12 d-flex" style="min-height: 300px">
               <% if @formation.address == "distanciel" %>
                 <img class="card-img align-self-stretch" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692710670/RHEXIS_R%C3%A9forme_Action_de_Formation_mg9mop.jpg" alt="" style="max-width: 100%; border-radius: 4px;">
               <% else %>
