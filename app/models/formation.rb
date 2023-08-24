@@ -7,6 +7,7 @@ class Formation < ApplicationRecord
 
   validates :description, length: { minimum: 10, maximum: 1000 }
   validates :date, presence: true
+  validates :end_date, presence: true
   validates :title, presence: true
   validates :theme, presence: true
   validates :price, presence: true
