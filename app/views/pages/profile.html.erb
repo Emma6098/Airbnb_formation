@@ -55,7 +55,11 @@
                     <h3 class="text-dark"><%=reservation.formation.title%></h3>
                     <p class="text-muted"><%= reservation.formation.user.first_name %></p>
                     <p class="text-muted"><%=reservation.formation.date.strftime("%d/%m/%Y")%> - <%=reservation.formation.end_date.strftime("%d/%m/%Y")%></p>
-                    <p class="text-muted"><i><%= reservation.statut %></i></p>
+                    <% if reservation.formation.end_date < Date.today %>
+                      <p class="text-muted"><i>Formation passée</i></p>
+                    <%else%>
+                      <p class="text-muted"><i><%= reservation.statut %></i></p>
+                    <%end%>
                     <span class="theme-profile"><%= reservation.formation.theme %></span>
                     <br>
                     <%=link_to "Supprimer cette réservation", reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette réservation?" }, class: "btn btn-delete"%>
