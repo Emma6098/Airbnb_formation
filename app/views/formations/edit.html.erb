@@ -1,14 +1,16 @@
-<h1>Mofidie ta formation</h1>
+<h1>Modifie ta formation</h1>
   <div class="containernewformation">
     <div class="row">
 
         <%= simple_form_for [@formation], html: { class: 'formation-form' } do |f| %>
           <%= f.input :title, label: 'Nom de la formation' %>
           <%= f.input :theme, label: 'Theme' %>
-          <%= f.input :date, label: 'Date' %>
+          <%= f.input :date, label: 'Date de début', as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+          <%= f.input :end_date, label: 'Date de fin', as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
           <%= f.input :price, label: 'Prix' %>
           <%= f.input :address, label: 'Lieu de la formation' %>
-          <%= f.input :photo_formation, as: :file, label: 'Photo' %>
           <%= f.input :description, label: 'Description', input_html: { rows: 5 } %>
           <%= f.button :submit, 'Ajouter une formation', class: 'btn-submit' %>
         <% end %>

@@ -38,16 +38,18 @@
     <div class="d-flex justify-content-end">
       <div class="card-reservation col-7 d-flex">
         <div>
-          <%=@formation.date.strftime("%d/%m/%Y")%>
+          <%=@formation.date.strftime("%d/%m/%Y")%> - <%=@formation.end_date.strftime("%d/%m/%Y")%>
           <h4 class="mb-0"><%=@formation.price%> €</h4>
         </div>
         <div>
         <% if current_user == @formation.user %>
-              <%=link_to "Modifier la formation", edit_formation_path(@formation), class:"btn button-reserver"%>
-              <%=link_to "Supprimer la formation", formation_path(@formation), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette formation?" }, class:"btn button-supprimer"%>
+          <%=link_to "Modifier la formation", edit_formation_path(@formation), class:"btn button-reserver"%>
+          <%=link_to "Supprimer la formation", formation_path(@formation), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette formation?" }, class:"btn button-supprimer"%>
+        <%elsif current_user.reservations.exists?(formation_id: @formation.id)%>
+          <%= link_to "Vous avez déjà réservé", "javascript:void(0);", class: "btn button-reserver", disabled: true %>
         <% else %>
-              <%=link_to "Réserver la formation", formation_reservations_path(@formation), data: {turbo_method: :post, turbo_confirm: "Etes vous sûr de vouloir réserver cette formation?" }, class:"btn button-reserver"%>
-        <% end %>
+          <%=link_to "Réserver la formation", formation_reservations_path(@formation), data: {turbo_method: :post, turbo_confirm: "Etes vous sûr de vouloir réserver cette formation?" }, class:"btn button-reserver"%>
+        <%end%>
         </div>
       </div>
     </div>
