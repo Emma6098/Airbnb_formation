@@ -1,16 +1,22 @@
 
-.btn-accept, .btn_submit {
+.btn-accept, .btn-sign-up {
   color: white;
   padding: 4px 10px;
   border-radius: 4px;
-  background: #36ba43;
+  background: #1b5e22;
+  a{
+    color: white;
+    text-decoration: none;
+  }
     &:hover {
-      background: #387d21;
+      background: #1e4610;
       color: white;
     }
 }
 
-
+.btn-sign-up{
+  margin-top: 6px;
+}
 .btn-reject {
   margin-top: 5px;
   color: white;
@@ -43,26 +49,25 @@
 }
 
 .btn-submit {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-}
-
-.btn-submit {
-  background-color: #007bff;
+  background-color: #1f1076;
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 3px;
   cursor: pointer;
   transition: background-color 0.3s;
+  width: 100%;
+  text-align: center;
+  margin-top: 6px;
+  &:hover {
+    background: #14063f;
+    color: white;
+  }
 }
 
-.btn-submit:hover {
-  background-color: #0056b3;
+.btns-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
