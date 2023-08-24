@@ -54,8 +54,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_124342) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.datetime "end_date"
     t.boolean "distance", default: false
+    t.datetime "end_date"
     t.index ["user_id"], name: "index_formations_on_user_id"
   end
 
