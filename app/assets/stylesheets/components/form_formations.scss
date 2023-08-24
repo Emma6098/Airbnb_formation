@@ -62,20 +62,6 @@
   border-color: #007bff;
 }
 
-.btn-submit {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn-submit:hover {
-  background-color: #0056b3;
-}
-
 h1,
 h2 {
   font-size: 24px;
@@ -90,16 +76,6 @@ h2 {
   margin-top: 15px;
 }
 
-.btn-submit {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-}
 
 @media (max-width: 700px) {
   .formation-form {
@@ -118,4 +94,12 @@ h2 {
     text-decoration: none;
     color: white;
   }
+}
+
+.mapboxgl-ctrl-geocoder {
+
+  max-width: 708.4px !important;
+  border: 1px solid lightgrey !important;
+  box-shadow: none;
+  background-color: transparent;
 }

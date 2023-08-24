@@ -12,7 +12,15 @@
           <%= f.input :end_date, label: 'Date de fin', as: :string,
             input_html: { data: { controller: "datepicker" } } %>
           <%= f.input :price, label: 'Prix' %>
-          <%= f.input :address, label: 'Lieu de la formation' %>
+          <div data-controller="mask-address">
+          <div data-action="click->mask-address#fire"><%= f.input :distance, label: 'Formation en distanciel'%></div>
+            <div data-mask-address-target="maskedElement">
+              <%= f.input :address,
+                input_html: {data: {address_autocomplete_target: "address", mask_address_target: "deleteTexte"}, class: "d-none"},
+                wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+                %>
+              </div>
+            </div>
           <%= f.input :description, label: 'Description', input_html: { rows: 5 } %>
           <%= f.button :submit, 'Ajouter la formation', class: 'btn-submit' %>
         <% end %>
