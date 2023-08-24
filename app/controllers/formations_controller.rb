@@ -47,6 +47,6 @@ class FormationsController < ApplicationController
   private
 
   def formation_params
-    params.require(:formation).permit(:title, :date, :description, :theme, :price, :photo_formation, :address, :longitude, :latitude)
+    params.require(:formation).permit(:title, :date, :end_date, :description, :theme, :price, :photo_formation, :address, :longitude, :latitude)
   end
 end
