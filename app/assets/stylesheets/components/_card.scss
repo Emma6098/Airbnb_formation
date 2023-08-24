@@ -37,6 +37,7 @@
   justify-content: flex-start;
   color: rgb(109, 107, 107);
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  position: relative;
 }
 
 .card-reservation {
@@ -70,14 +71,14 @@
   display: inline-block;
   font-size: 14px;
   border-radius: 4px;
-
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 
 }
 
 .button-reserver:hover, #button-modifier:hover, .button-connect:hover{
-  background-color: #435669;
+  background-color: #2e3e4e;
+  color:white
 }
 
 .button-supprimer{
