@@ -1,4 +1,3 @@
-<%# <%=@formation.user.first_name%>
 <div class= container>
     <div class="card-show-title col-12">
         <div class="title-container d-flex justify-content-center">
@@ -10,23 +9,25 @@
     </div>
       <div class="row justify-content-space-between">
         <div class="col 6 col-md-6 col-sm-12 d-flex">
-          <div class="card-show ">
-              <h4><%=@formation.user.first_name%> <%=@formation.user.last_name%></h4>
-              <%=@formation.description%>
-              <div class="avatar avatar-absolut">
+          <div class="card-show">
+            <div>
+              <h4 class="mb-4"><%=@formation.user.first_name%> <%=@formation.user.last_name%></h4>
+              <p><%=@formation.description%></p>
+            </div>
+              <div class="avatar avatar-absolut d-flex justify-content-end">
                 <% if @formation.user.photo.attached? %>
-                  <%= cl_image_tag @formation.user.photo.key %>
+                  <%= cl_image_tag @formation.user.photo.key, class:"avatar"%>
                 <% else %>
-                  <img class="avatar" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692693068/vf0knbzqj91f65omnthy.png" alt="">
+                  <img src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692693068/vf0knbzqj91f65omnthy.png" alt="">
                 <% end%>
             </div>
           </div>
         </div>
-          <div class="col-6 col-md-6 col-sm-12 d-flex" style="min-height: 300px">
+          <div class="col-6 col-md-6 col-sm-12 d-flex" style="min-height:300px; max-height: 350px;">
               <% if @formation.address == "distanciel" %>
-                <img class="card-img align-self-stretch" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692710670/RHEXIS_R%C3%A9forme_Action_de_Formation_mg9mop.jpg" alt="" style="max-width: 100%; border-radius: 4px;">
+                <img class="card-img" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692710670/RHEXIS_R%C3%A9forme_Action_de_Formation_mg9mop.jpg" alt="" style="max-width: 100%; border-radius: 4px;">
               <% else %>
-                <div class="card-img align-self-stretch" style="max-width: 100%"
+                <div class="card-img" style="max-width: 100%"
                   data-controller="map"
                   data-map-marker-value="<%= @marker.to_json %>"
                   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
