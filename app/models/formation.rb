@@ -9,8 +9,7 @@ class Formation < ApplicationRecord
   validates :date, presence: true
   validates :end_date, presence: true
   validates :title, presence: true, length: { maximum: 40 }
-  validates :title, presence: true, length: { maximum: 12 }
-  validates :theme, presence: true
+  validates :theme, presence: true, length: { maximum: 12 }
   validates :price, presence: true
   validates :quota, presence: true
 
