@@ -12,8 +12,9 @@
           <%= f.input :end_date, label: 'Date de fin', as: :string,
             input_html: { data: { controller: "datepicker" } } %>
           <%= f.input :price, label: 'Prix' %>
+          <%= f.input :quota, label: 'nombre de places' %>
           <div data-controller="mask-address">
-          <div data-action="click->mask-address#fire"><%= f.input :distance, label: 'Formation en distanciel'%></div>
+          <div data-action="click->mask-address#fire"><%= f.input :distance, as: :boolean, label: 'Formation en distanciel'%></div>
             <div data-mask-address-target="maskedElement">
               <%= f.input :address,
                 input_html: {data: {address_autocomplete_target: "address", mask_address_target: "deleteTexte"}, class: "d-none"},
