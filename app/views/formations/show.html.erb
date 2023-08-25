@@ -13,6 +13,7 @@
             <div>
               <h4 class="mb-4"><%=@formation.user.first_name%> <%=@formation.user.last_name%></h4>
               <p><%=@formation.description%></p>
+              <p><i>Nombre de personnes acceptées : <%=@formation.quota%></i></p>
             </div>
               <div class="avatar avatar-absolut d-flex justify-content-end">
                 <% if @formation.user.photo.attached? %>
@@ -45,6 +46,8 @@
         <% if current_user == @formation.user %>
           <%=link_to "Modifier la formation", edit_formation_path(@formation), class:"btn button-reserver"%>
           <%=link_to "Supprimer la formation", formation_path(@formation), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette formation?" }, class:"btn button-supprimer"%>
+        <%elsif @formation.reservations.count >= @formation.quota%>
+          <%= link_to "Complet", "javascript:void(0);", class: "btn button-reserver", disabled: true %>
         <%elsif current_user.reservations.exists?(formation_id: @formation.id)%>
           <%= link_to "Vous avez déjà réservé", "javascript:void(0);", class: "btn button-reserver", disabled: true %>
         <% else %>

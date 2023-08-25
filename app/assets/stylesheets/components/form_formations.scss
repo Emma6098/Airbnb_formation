@@ -90,15 +90,12 @@ h2 {
 }
 
 .password_link {
-  a {
-    text-decoration: none;
-    color: white;
-  }
+  display: none !important;
 }
 
 .mapboxgl-ctrl-geocoder {
 
-  max-width: 708.4px !important;
+  min-width: 708.4px !important;
   border: 1px solid lightgrey !important;
   box-shadow: none;
   background-color: transparent;

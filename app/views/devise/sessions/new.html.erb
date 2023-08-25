@@ -10,8 +10,10 @@
                   required: false,
                   input_html: { autocomplete: "current-password" } %>
       <%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
-      <%= f.button :submit, "Se connecter", class: "btn-sign-up" %>
-      <%= render "devise/shared/links" %>
+      <div class= "btns-flex">
+        <%= f.button :submit, "Se connecter", class: "btn-log-in" %>
+        <%= render "devise/shared/links", label: "S'inscrire" %>
+      </div>
     </div>
   <% end %>
 </div>
