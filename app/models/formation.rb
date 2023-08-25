@@ -8,9 +8,11 @@ class Formation < ApplicationRecord
   validates :description, length: { minimum: 10, maximum: 1000 }
   validates :date, presence: true
   validates :end_date, presence: true
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 40 }
+  validates :title, presence: true, length: { maximum: 12 }
   validates :theme, presence: true
   validates :price, presence: true
+  validates :quota, presence: true
 
   include PgSearch::Model
   pg_search_scope :search_by_theme_and_description,

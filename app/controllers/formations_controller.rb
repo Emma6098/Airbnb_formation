@@ -24,8 +24,11 @@ class FormationsController < ApplicationController
   def create
     @formation = Formation.new(formation_params)
     @formation.user = current_user
-    @formation.save!
-    redirect_to formation_path(@formation)
+    if @formation.save
+      redirect_to formation_path(@formation)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
