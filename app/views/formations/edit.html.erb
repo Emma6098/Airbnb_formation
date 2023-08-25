@@ -1,18 +1,27 @@
 <h1>Modifie ta formation</h1>
-  <div class="containernewformation">
+   <div class="containernewformation">
     <div class="row">
 
         <%= simple_form_for [@formation], html: { class: 'formation-form' } do |f| %>
           <%= f.input :title, label: 'Nom de la formation' %>
-          <%= f.input :theme, label: 'Theme' %>
+          <%= f.input :theme, label: 'Thème' %>
           <%= f.input :date, label: 'Date de début', as: :string,
             input_html: { data: { controller: "datepicker" } } %>
           <%= f.input :end_date, label: 'Date de fin', as: :string,
             input_html: { data: { controller: "datepicker" } } %>
           <%= f.input :price, label: 'Prix' %>
-          <%= f.input :address, label: 'Lieu de la formation' %>
+          <%= f.input :quota, label: 'Nombre de places' %>
+          <div data-controller="mask-address">
+          <div data-action="click->mask-address#fire"><%= f.input :distance, as: :boolean, label: 'Formation en distanciel'%></div>
+            <div data-mask-address-target="maskedElement">
+              <%= f.input :address, label: 'Adresse de la formation',
+                input_html: {data: {address_autocomplete_target: "address", mask_address_target: "deleteTexte"}, class: "d-none"},
+                wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+                %>
+              </div>
+            </div>
           <%= f.input :description, label: 'Description', input_html: { rows: 5 } %>
-          <%= f.button :submit, 'Ajouter une formation', class: 'btn-submit' %>
+          <%= f.button :submit, 'Ajouter la formation', class: 'btn-submit' %>
         <% end %>
 
     </div>
