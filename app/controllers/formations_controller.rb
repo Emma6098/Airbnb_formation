@@ -2,7 +2,7 @@ class FormationsController < ApplicationController
 
   def index
       if params[:keyword]
-        @formations = Formation.search_by_theme(params[:keyword])
+        @formations = Formation.search_by_theme_and_description(params[:keyword])
       else
         @formations = Formation.all
       end

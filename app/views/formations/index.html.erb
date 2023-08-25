@@ -2,7 +2,7 @@
   <div class="mb-4">
     <%= form_tag formations_path, method: :get, class: "form-inline" do %>
       <div class="input-group">
-        <%= text_field_tag :keyword, params[:keyword], class: "form-control search", placeholder: "Rechercher par mot-clé" %>
+        <%= text_field_tag :keyword, params[:keyword], class: "form-control search", placeholder: "Rechercher par mot-clé ou localisation" %>
         <div class="input-group-append">
           <%= submit_tag "Rechercher", class: "btn btn-search " %>
         </div>
