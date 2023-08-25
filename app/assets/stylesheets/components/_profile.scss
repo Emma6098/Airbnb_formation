@@ -2,14 +2,11 @@
   margin-right: 50px;
   background-color: white;
   border-radius: 7px;
-  box-shadow: 0 0 2px rgba(109, 107, 107, 0.2);
+  box-shadow: 0 0 2px rgba(109,107,107,0.2);
   height: auto;
   width: 400px;
   display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  color: rgb(109, 107, 107) !important;
-  position: relative;
+  color: #6d6b6b !important;
   transition: transform 0.3s ease-in-out;
   &:hover {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -26,9 +23,6 @@
       background: #6b2121;
       color: white;
     }
-  position: absolute;
-  bottom: 1rem; left: 1rem;
-
 }
 
 .theme-profile {
