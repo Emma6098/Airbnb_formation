@@ -13,8 +13,8 @@ class Formation < ApplicationRecord
   validates :price, presence: true
 
   include PgSearch::Model
-  pg_search_scope :search_by_theme,
-  against: [ :theme ],
+  pg_search_scope :search_by_theme_and_description,
+  against: [ :theme, :description, :address ],
   using: {
     tsearch: { prefix: true } # <-- now `superman batm` will return something!
   }
