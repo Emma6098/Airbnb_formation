@@ -62,7 +62,7 @@
                     <%end%>
                     <span class="theme-profile"><%= reservation.formation.theme %></span>
                     <br>
-                    <%=link_to "Supprimer cette réservation", reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette réservation?" }, class: "btn btn-delete"%>
+                    <div class="btn-flex"><%=link_to "Supprimer cette réservation", reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Etes vous sûr de vouloir supprimer cette réservation?" }, class: "btn btn-delete"%></div>
                 </div>
               </div>
             <%end%>
