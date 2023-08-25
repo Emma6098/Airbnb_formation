@@ -21,9 +21,8 @@
           <%= link_to formation_path(formation), class: "card-body text-decoration-none" do %>
             <div>
               <h3 class="text-dark taille-titre "><%= formation.title %></h3>
-              <%= formation.date.strftime("%d/%m/%Y") %> - <%=formation.end_date.strftime("%d/%m/%Y")%>
-              <br>
-              <%= formation.price %>€
+              <p><%= formation.date.strftime("%d/%m/%Y") %> - <%=formation.end_date.strftime("%d/%m/%Y")%></p>
+              <b><%= formation.price %>€</b>
               <p class="theme"><%= formation.theme %></p>
               <div>
               <% if formation.user.photo.attached? %>
@@ -41,9 +40,8 @@
           <%= link_to formation_path(expired_formation), class: "card-body text-decoration-none" do %>
             <div>
               <h3 class="text-dark taille-titre"><%= expired_formation.title %></h3>
-              <%= expired_formation.date.strftime("%d/%m/%Y") %> - <%= expired_formation.end_date.strftime("%d/%m/%Y") %>
-              <br>
-              <%= expired_formation.price %>€
+              <p><%= expired_formation.date.strftime("%d/%m/%Y") %> - <%= expired_formation.end_date.strftime("%d/%m/%Y") %></p>
+              <b><%= expired_formation.price %>€</b>
               <p class="theme"><%= expired_formation.theme %></p>
               <div>
                 <% if expired_formation.user.photo.attached? %>
