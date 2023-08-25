@@ -12,29 +12,47 @@
 
   <div class="d-flex align-items-center justify-content-between mb-5">
     <h2 class="mb-0">Liste des formations disponibles : </h2>
-
     <%= link_to "Ajouter une formation", new_formation_path, class: "btn btn-flat" %>
   </div>
-  <div class="row d-flex justify-content-center">
-    <% @formations.each do |formation| %>
-      <div class="card col-3 col-sm-6 col-md-4 mt-3 mb-3 p-3 border <%= 'expired-formation' if formation.end_date < Date.today %>">
-        <%= link_to formation_path(formation), class: "card-body text-decoration-none" do %>
-          <div>
-            <h3 class="text-dark taille-titre "><%= formation.title %></h3>
-            <%= formation.date.strftime("%d/%m/%Y") %> - <%=formation.end_date.strftime("%d/%m/%Y")%>
-            <br>
-            <%= formation.price %>€
-            <p class="theme"><%= formation.theme %></p>
+
+  <div class="row d-flex justify-content-start">
+      <% @formations.each do |formation| %>
+        <div class="card d-flex mt-3 mb-3 p-3 border">
+          <%= link_to formation_path(formation), class: "card-body text-decoration-none" do %>
             <div>
-            <% if formation.user.photo.attached? %>
-              <%= cl_image_tag formation.user.photo.key, class: "avatar avatar-absolut" %>
-            <% else %>
-              <img class="avatar avatar-absolut" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692693068/vf0knbzqj91f65omnthy.png" alt="">
-            <% end%>
+              <h3 class="text-dark taille-titre "><%= formation.title %></h3>
+              <p><%= formation.date.strftime("%d/%m/%Y") %> - <%=formation.end_date.strftime("%d/%m/%Y")%></p>
+              <b><%= formation.price %>€</b>
+              <p class="theme"><%= formation.theme %></p>
+              <div>
+              <% if formation.user.photo.attached? %>
+                <%= cl_image_tag formation.user.photo.key, class: "avatar avatar-absolut" %>
+              <% else %>
+                <img class="avatar avatar-absolut" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692693068/vf0knbzqj91f65omnthy.png" alt="">
+              <% end%>
+              </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+          <% end %>
+        </div>
+      <% end %>
+      <% @expired_formations.each do |expired_formation| %>
+        <div class="card row mt-3 mb-3 p-3 border expired-formation">
+          <%= link_to formation_path(expired_formation), class: "card-body text-decoration-none" do %>
+            <div>
+              <h3 class="text-dark taille-titre"><%= expired_formation.title %></h3>
+              <p><%= expired_formation.date.strftime("%d/%m/%Y") %> - <%= expired_formation.end_date.strftime("%d/%m/%Y") %></p>
+              <b><%= expired_formation.price %>€</b>
+              <p class="theme"><%= expired_formation.theme %></p>
+              <div>
+                <% if expired_formation.user.photo.attached? %>
+                  <%= cl_image_tag expired_formation.user.photo.key, class: "avatar avatar-absolut" %>
+                <% else %>
+                  <img class="avatar avatar-absolut" src="https://res.cloudinary.com/dmcatvo8d/image/upload/v1692693068/vf0knbzqj91f65omnthy.png" alt="">
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 </div>

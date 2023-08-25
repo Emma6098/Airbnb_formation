@@ -6,6 +6,7 @@ class FormationsController < ApplicationController
       else
         @formations = Formation.all
       end
+      @expired_formations = Formation.where('end_date < ?', Date.today)
   end
 
   def show
