@@ -38,6 +38,7 @@ class FormationsController < ApplicationController
     redirect_to formation_path(@formation)
   end
 
+
   def destroy
     @formation = Formation.find(params[:id])
     @formation.destroy
